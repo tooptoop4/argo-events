@@ -16,13 +16,19 @@ func GetSaramaConfigFromYAMLString(yaml string) (*sarama.Config, error) {
 	if err := v.ReadConfig(bytes.NewBufferString(yaml)); err != nil {
 		return nil, err
 	}
+
+	//todo would this break on anything
 	cfg := sarama.NewConfig()
 	cfg.Producer.Return.Successes = true
 	if err := v.Unmarshal(cfg); err != nil {
 		return nil, fmt.Errorf("unable to decode into struct, %w", err)
 	}
-	if err := cfg.Validate(); err != nil {
-		return nil, fmt.Errorf("failed validating sarama config, %w", err)
+
+	if cfg.Net.SASL.Mechanism != "AWS_MSK_IAM" {
+		//make it allow IAM
+		if err := cfg.Validate(); err != nil {
+			return nil, fmt.Errorf("failed validating sarama config, %w", err)
+		}
 	}
 	return cfg, nil
 }

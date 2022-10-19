@@ -73,17 +73,22 @@ func NewKafkaTrigger(sensor *v1alpha1.Sensor, trigger *v1alpha1.Trigger, kafkaPr
 				config.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &common.XDGSCRAMClient{HashGeneratorFcn: common.SHA256New} }
 			}
 
-			user, err := common.GetSecretFromVolume(kafkatrigger.SASL.UserSecret)
-			if err != nil {
-				return nil, fmt.Errorf("Error getting user value from secret, %w", err)
-			}
-			config.Net.SASL.User = user
+			if config.Net.SASL.Mechanism == "AWS_MSK_IAM" {
+				//todo need to put relevant IAM, also how does this mechanism get invoked? maybe should set diff config
+				config.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return common.NewIAMSASLClient(strings.Split(kafkatrigger.URL, ",")[0], kafkatrigger.Region, config.ClientID) }
+			} else {
+				user, err := common.GetSecretFromVolume(kafkatrigger.SASL.UserSecret)
+				if err != nil {
+					return nil, fmt.Errorf("Error getting user value from secret, %w", err)
+				}
+				config.Net.SASL.User = user
 
-			password, err := common.GetSecretFromVolume(kafkatrigger.SASL.PasswordSecret)
-			if err != nil {
-				return nil, fmt.Errorf("Error getting password value from secret, %w", err)
+				password, err := common.GetSecretFromVolume(kafkatrigger.SASL.PasswordSecret)
+				if err != nil {
+					return nil, fmt.Errorf("Error getting password value from secret, %w", err)
+				}
+				config.Net.SASL.Password = password
 			}
-			config.Net.SASL.Password = password
 		}
 
 		if kafkatrigger.TLS != nil {

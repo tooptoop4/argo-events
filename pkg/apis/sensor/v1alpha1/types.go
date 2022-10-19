@@ -574,6 +574,9 @@ type KafkaTrigger struct {
 	// SASL configuration for the kafka client
 	// +optional
 	SASL *apicommon.SASLConfig `json:"sasl,omitempty" protobuf:"bytes,12,opt,name=sasl"`
+	// AWS Region
+	// +optional
+	Region string `json:"region" protobuf:"bytes,13,opt,name=region"`
 }
 
 // PulsarTrigger refers to the specification of the Pulsar trigger.

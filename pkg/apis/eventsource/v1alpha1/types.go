@@ -529,6 +529,9 @@ type KafkaEventSource struct {
 	//
 	// +optional
 	Config string `json:"config,omitempty" protobuf:"bytes,13,opt,name=config"`
+	// AWS Region
+	// +optional
+	Region string `json:"region" protobuf:"bytes,14,opt,name=region"`
 }
 
 type KafkaConsumerGroup struct {
