@@ -10,7 +10,7 @@ retract v1.15.0 // Published accidentally.
 
 require (
 	cloud.google.com/go/compute/metadata v0.6.0
-	cloud.google.com/go/pubsub v1.45.1
+	cloud.google.com/go/pubsub v1.49.0
 	github.com/AdaLogics/go-fuzz-headers v0.0.0-20221103172237-443f56ff4ba8
 	github.com/Azure/azure-event-hubs-go/v3 v3.6.2
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.9.0
@@ -174,7 +174,7 @@ require (
 	go.opentelemetry.io/otel/trace v1.35.0 // indirect
 	gomodules.xyz/envconfig v1.3.1-0.20190308184047-426f31af0d45 // indirect
 	gomodules.xyz/notify v0.1.1 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20250218202821-56aae31c358a // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20250313205543-e70fdf4c4cb4 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250428153025-10db94c68c34 // indirect
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
 	gopkg.in/evanphx/json-patch.v4 v4.12.0 // indirect
@@ -186,8 +186,8 @@ require (
 )
 
 require (
-	cloud.google.com/go v0.116.0 // indirect
-	cloud.google.com/go/iam v1.2.2 // indirect
+	cloud.google.com/go v0.120.0 // indirect
+	cloud.google.com/go/iam v1.4.2 // indirect
 	github.com/Azure/azure-sdk-for-go v65.0.0+incompatible // indirect
 	github.com/Azure/go-amqp v1.4.0 // indirect
 	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
@@ -325,7 +325,7 @@ require (
 	golang.org/x/time v0.11.0 // indirect
 	golang.org/x/tools v0.32.0 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.2.0 // indirect
-	google.golang.org/genproto v0.0.0-20241118233622-e639e219e697 // indirect
+	google.golang.org/genproto v0.0.0-20250303144028-a0af3efb3deb // indirect
 	google.golang.org/protobuf v1.36.6 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/jcmturner/aescts.v1 v1.0.1 // indirect
