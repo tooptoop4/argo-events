@@ -16,7 +16,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.12.0
 	github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus v1.10.0
 	github.com/Azure/azure-sdk-for-go/sdk/storage/azqueue v1.0.1
-	github.com/IBM/sarama v1.46.0
+	github.com/IBM/sarama v1.46.1
 	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible
 	github.com/Masterminds/sprig/v3 v3.3.0
 	github.com/ahmetb/gen-crd-api-reference-docs v0.3.0
